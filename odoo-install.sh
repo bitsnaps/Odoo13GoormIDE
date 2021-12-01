@@ -15,8 +15,13 @@
 # Execute the script to install Odoo:
 # ./odoo-install
 ################################################################################
-WKHTMLTOX_X64=https://downloads.wkhtmltopdf.org/0.12/0.12.1/wkhtmltox-0.12.1_linux-trusty-amd64.deb
-WKHTMLTOX_X32=https://downloads.wkhtmltopdf.org/0.12/0.12.1/wkhtmltox-0.12.1_linux-trusty-i386.deb
+#trusty
+WKHTMLTOX_X64=https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.trusty_amd64.deb
+WKHTMLTOX_X32=https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.trusty_i386.deb
+
+#bionic
+WKHTMLTOX_X64=https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.bionic_amd64.deb
+WKHTMLTOX_X32=https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.bionic_i386.deb
 
 #--------------------------------------------------
 # Update Server
@@ -30,7 +35,7 @@ sudo apt-get upgrade -y
 service postgres status
 if [ "$?" -gt "0" ]; then
   echo -e "\n---- Install PostgreSQL Server ----"
-  sudo apt-get install postgresql -y
+  sudo DEBIAN_FRONTEND=noninteractive apt-get install postgresql -y
 else
   echo -e "\n---- PostgreSQL Server already installed - skipping install ----"
 fi
@@ -40,28 +45,27 @@ sudo su - postgres -c "createuser -s odoo" 2> /dev/null || true
 # Install Dependencies
 #--------------------------------------------------
 echo -e "\n---- Install tool packages ----"
-sudo apt-get install wget subversion git bzr bzrtools python-pip gdebi-core -y
+sudo DEBIAN_FRONTEND=noninteractive apt-get install wget subversion git bzr bzrtools python-pip gdebi-core -y
 	
 echo -e "\n---- Install python packages ----"
-sudo apt-get install python-suds python-dateutil python-feedparser python-ldap python-libxslt1 python-lxml python-mako python-openid python-psycopg2 python-pybabel python-pychart python-pydot python-pyparsing python-reportlab python-simplejson python-tz python-vatnumber python-vobject python-webdav python-werkzeug python-xlwt python-yaml python-zsi python-docutils python-psutil python-mock python-unittest2 python-jinja2 python-pypdf python-decorator python-requests python-passlib python-pil -y
+sudo DEBIAN_FRONTEND=noninteractive apt-get install python-suds python-dateutil python-feedparser python-ldap python-libxslt1 python-lxml python-mako python-openid python-psycopg2 python-pybabel python-pychart python-pydot python-pyparsing python-reportlab python-simplejson python-tz python-vatnumber python-vobject python-webdav python-werkzeug python-xlwt python-yaml python-zsi python-docutils python-psutil python-mock python-unittest2 python-jinja2 python-pypdf python-decorator python-requests python-passlib python-pil -y
 	
 # Removed libs
 #sudo apt-get remove python-werkzeug
 #sudo apt-get remove python-ldap
 
 # then I reinstalled libssl libs
-sudo apt-get install libsasl2-dev python-dev libldap2-dev libssl-dev
+sudo DEBIAN_FRONTEND=noninteractive apt-get install libsasl2-dev python-dev libldap2-dev libssl-dev -y
 
 
 echo -e "\n---- Install python libraries ----"
 sudo pip install gdata psycogreen ofxparse XlsxWriter
 
 echo -e "\n--- Install other required packages"
-sudo apt-get install node-clean-css -y
-sudo apt-get install node-less -y
-sudo apt-get install python-gevent -y
+sudo DEBIAN_FRONTEND=noninteractive apt-get install node-clean-css node-less -y
+sudo DEBIAN_FRONTEND=noninteractive apt-get install python-gevent -y
 
-sudo apt-get install nodejs npm -y
+sudo DEBIAN_FRONTEND=noninteractive apt-get install nodejs npm -y
 sudo npm install -g less -y
 sudo npm install -g less-plugin-clean-css -y
     
