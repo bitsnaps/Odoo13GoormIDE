@@ -87,6 +87,8 @@ sudo ln -s /usr/local/bin/wkhtmltoimage /usr/bin
 #sudo git clone --depth 1 --branch 10.0 https://www.github.com/bistaray/enterprise /opt/odoo10/enterprise
 # Replaced by:
 sudo git clone --depth 1 --branch 13.0 https://github.com/OCA/OCB /opt/odoo13/odoo
+# Or in a local directoy:
+#sudo git clone --depth 1 --branch 13.0 https://github.com/OCA/OCB odoo13
 
 #sudo cp /opt/odoo10/odoo/debian/odoo.conf /etc/odoo-server.conf
 sudo cp /opt/odoo13/odoo/debian/odoo.conf /etc/odoo-server.conf
