@@ -21,7 +21,7 @@ source: https://www.odoo.com/forum/help-1/question/operationalerror-fatal-role-r
 ```
 cd /path/to/odoo13
 pip3 install setuptools wheel
-pip3 install -r requirements.txt
+pip3 install -U -r requirements.txt
 ```
 
 # Running Odoo13
