@@ -65,6 +65,9 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install python3-babel python-pypdf2 
 # then I reinstalled libssl libs
 sudo DEBIAN_FRONTEND=noninteractive apt-get install libsasl2-dev python-dev libldap2-dev libssl-dev python-gevent -y
 
+# Install MySQL Config driver (needed by some modules)
+sudo DEBIAN_FRONTEND=noninteractive apt-get install mysql-server libmysqlclient-dev -y
+
 
 echo -e "\n---- Install python libraries ----"
 sudo pip install gdata psycogreen ofxparse XlsxWriter
