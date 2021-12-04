@@ -1,0 +1,31 @@
+image:
+  file: .gitpod.Dockerfile
+
+# exposed ports
+ports:
+- port: 5432 # PostgreSQL
+  onOpen: ignore
+- port: 8069 # preview on browser
+  onOpen: open-browser
+
+tasks:
+  - init: |
+      echo "Installing Odoo..."
+    command: |
+      echo "Running Odoo..."
+  - command: gp await-port 8069 && gp preview "$(gp url 8069)/web/database/selector"
+
+# P.S. You should remove ":433" from the url when running the web preview.
+
+# Create a database
+#CREATE DATABASE odoo13_db WITH OWNER odoo13;
+#GRANT ALL PRIVILEGES ON DATABASE odoo13_db TO odoo13;
+
+# Run with database:
+#./odoo-bin -w odoo13 -r odoo13 -d odoo13_db --addons-path=./addons --db_host 127.0.0.1
+
+# Run with different PostgreSQL port:
+#./odoo-bin -w odoo13 -r odoo13 --addons-path=./addons --db_host 127.0.0.1 --db_port 5433
+
+# Run and init a database:
+#./odoo-bin -w odoo13 -r odoo13 -d odoo13_db --addons-path=./addons --db_host 127.0.0.1 -i base
