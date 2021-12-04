@@ -1,4 +1,7 @@
 # Install Odoo 13 CE on GoormIDE
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
+
 Use the `odoo-install.sh` script to install
 ```bash
 sudo chmod +x odoo-install.sh
