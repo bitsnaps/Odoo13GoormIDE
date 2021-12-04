@@ -10,10 +10,10 @@ ports:
 
 tasks:
   - init: |
-      echo "Create DB/user..."
-      psql -c "CREATE USER odoo13;"
-      psql -c "CREATE DATABASE odoo13 WITH OWNER odoo13;"
-      psql -c "GRANT ALL PRIVILEGES ON DATABASE odoo13 TO odoo13;"
+      #echo "Create DB/user..."
+      #psql -c "CREATE USER odoo13;"
+      #psql -c "CREATE DATABASE odoo13 WITH OWNER odoo13;"
+      #psql -c "GRANT ALL PRIVILEGES ON DATABASE odoo13 TO odoo13;"
       echo "---- Install python libraries ----"
       pip install -U setuptools==57.5.0 wheel #fix: use_2to3 compatibility issue
       pip install gdata psycogreen ofxparse XlsxWriter

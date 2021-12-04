@@ -13,7 +13,7 @@ RUN sudo DEBIAN_FRONTEND=noninteractive apt-get install wget git bzr python3-pip
 RUN sudo DEBIAN_FRONTEND=noninteractive apt-get install python-dateutil python-lxml python-mako python-pyparsing python-simplejson python-tz python-werkzeug-doc python-xlwt-doc python-yaml python-docutils python-psutil python-mock python-unittest2 python-jinja2 python-decorator python-passlib python-pil apt-utils -y
 
 # --- Other packages (Only ubuntu >= 18.04) ---
-RUN sudo DEBIAN_FRONTEND=noninteractive apt-get install python-pypdf2 python3-lxml python-babel python3-babel -y
+RUN sudo DEBIAN_FRONTEND=noninteractive apt-get install python-pypdf2 python3-pypdf2 python3-lxml python-babel python3-babel -y
 
 # ---- Install python packages LDAP based on OpenLDAP ----
 RUN sudo DEBIAN_FRONTEND=noninteractive apt-get install python-dev libldap2-dev libsasl2-dev gcc -y
