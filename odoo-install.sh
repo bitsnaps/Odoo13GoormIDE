@@ -21,6 +21,9 @@
 WKHTMLTOX_X64=https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.bionic_amd64.deb
 WKHTMLTOX_X32=https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.bionic_i386.deb
 
+#focal
+WKHTMLTOX_X64=https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.focal_amd64.deb
+
 #--------------------------------------------------
 # Update Server
 #--------------------------------------------------
@@ -57,6 +60,7 @@ echo -e "\n---- Install python packages ----"
 sudo DEBIAN_FRONTEND=noninteractive apt-get install python-suds python-dateutil python-feedparser python-ldap python-libxslt1 python-lxml python-mako python-openid python-psycopg2 python-pychart python-pydot python-pyparsing python-reportlab python-simplejson python-tz python-vatnumber python-vobject python-webdav python-werkzeug python-xlwt python-yaml python-zsi python-docutils python-psutil python-mock python-unittest2 python-jinja2 python-pypdf python-decorator python-requests python-passlib python-pil -y
 # old packages (ubuntu 16): python-pybabel python-pypdf
 sudo DEBIAN_FRONTEND=noninteractive apt-get install python3-babel python-pypdf2 -y
+# PS. "python-pypdf2" may be replaced by "python3-pypdf2"
 	
 # Remove old libs
 #sudo apt-get remove python-werkzeug

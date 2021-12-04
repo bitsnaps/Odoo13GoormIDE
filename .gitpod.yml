@@ -10,16 +10,29 @@ ports:
 
 tasks:
   - init: |
-      echo "Installing Odoo..."
+      echo "Create DB/user..."
+      psql -c "CREATE USER odoo13;"
+      psql -c "CREATE DATABASE odoo13 WITH OWNER odoo13;"
+      psql -c "GRANT ALL PRIVILEGES ON DATABASE odoo13 TO odoo13;"
+      echo "---- Install python libraries ----"
+      pip install -U setuptools==57.5.0 wheel #fix: use_2to3 compatibility issue
+      pip install gdata psycogreen ofxparse XlsxWriter
+      echo "---- Clone repository ----"
+      git clone --depth 1 --branch 13.0 https://github.com/OCA/OCB odoo13
+      cd odoo13
+      echo "---- Install requirements ----"
+      pip install -U -r requirements.txt
     command: |
       echo "Running Odoo..."
+      cd /workspace/Odoo13GoormIDE/odoo13
+      ./odoo-bin --addons-path=./addons --db_host 127.0.0.1
   - command: gp await-port 8069 && gp preview "$(gp url 8069)/web/database/selector"
 
 # P.S. You should remove ":433" from the url when running the web preview.
 
 # Create a database
-#CREATE DATABASE odoo13_db WITH OWNER odoo13;
-#GRANT ALL PRIVILEGES ON DATABASE odoo13_db TO odoo13;
+#psql -c "CREATE DATABASE odoo13_db WITH OWNER odoo13;"
+#psql -c "GRANT ALL PRIVILEGES ON DATABASE odoo13_db TO odoo13;"
 
 # Run with database:
 #./odoo-bin -w odoo13 -r odoo13 -d odoo13_db --addons-path=./addons --db_host 127.0.0.1
