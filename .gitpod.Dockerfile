@@ -27,7 +27,17 @@ RUN sudo DEBIAN_FRONTEND=noninteractive apt-get install python3-suds -y
 
 # --- Install other required packages (node, less) ----
 RUN sudo DEBIAN_FRONTEND=noninteractive apt-get install node-clean-css node-less -y
-# Already installed in Gitpod
+
+# --- Install python libraries ---
+
+#fix: use_2to3 compatibility issue
+RUN pip install -U setuptools==57.5.0 wheel
+# Install extra required packages
+RUN pip install gdata psycogreen ofxparse XlsxWriter
+# Install packages from requirements file
+RUN pip install -U -r https://raw.githubusercontent.com/OCA/OCB/13.0/requirements.txt
+
+# Already satisfied by Gitpod workspace
 #RUN sudo DEBIAN_FRONTEND=noninteractive apt-get install nodejs npm -y
 #RUN sudo npm install -g less -y
 #RUN sudo npm install -g less-plugin-clean-css -y

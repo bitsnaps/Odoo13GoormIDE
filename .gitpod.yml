@@ -10,7 +10,10 @@ ports:
 
 tasks:
   - init: |
-      ./gitpod-setup.sh
+      echo "Clone repository..."
+      git clone --depth 1 --branch 13.0 https://github.com/OCA/OCB odoo13
+      echo "Create runnable script..."
+      echo "./odoo-bin --addons-path=./addons --db_host 127.0.0.1" > ./odoo13/run.sh
     command: cd odoo13 && ./run.sh
   - command: gp await-port 8069 && gp preview "$(gp url 8069)/web/database/selector"
 
