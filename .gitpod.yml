@@ -22,10 +22,10 @@ tasks:
       cd odoo13
       echo "---- Install requirements ----"
       pip install -U -r requirements.txt
-    command: |
       echo "Running Odoo..."
-      cd /workspace/Odoo13GoormIDE/odoo13
-      ./odoo-bin --addons-path=./addons --db_host 127.0.0.1
+      echo "./odoo-bin --addons-path=./addons --db_host 127.0.0.1" > run.sh
+      sudo chmod +x run.sh
+      ./run.sh
   - command: gp await-port 8069 && gp preview "$(gp url 8069)/web/database/selector"
 
 # P.S. You should remove ":433" from the url when running the web preview.
