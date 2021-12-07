@@ -47,6 +47,7 @@ sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/margin-anal
 # requires: [email-validator==1.1.1]
 sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/partner-contact.git partner-contact
 
+# depends on: [account-payment]
 sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/pos.git pos
 # depends on: [project-reporting, server-tools, timesheet]
 sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/project.git project
@@ -80,7 +81,34 @@ sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/account-clo
 # Business Requirement Deliverable
 sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/business-requirement.git business-requirement
 
+
 # Unstable/Unverified Addons
+
+# DeBranding Server
+sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/server-brand.git server-brand
+
+# HR
+# depends on: [partner-contact]
+sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/hr.git hr
+
+# Helpdesk
+# depends on: [project]
+sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/helpdesk.git helpdesk
+
+# requires: [cerberus pyquerystring parse-accept-language jsondiff graphene graphql-server-core marshmallow marshmallow-objects>=2.0.0 apispec], depends on: [connector]
+sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/rest-framework.git rest-framework
+
+# Timesheet
+# depends on: [project, web]
+sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/timesheet.git timesheet
+
+# IoT
+# requires: [pika]
+sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/iot.git iot
+
+# Payroll
+sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/payroll.git payroll
+
 # requires: [numpy<=1.19.4, numpy-financial<=1.0.0], depends on: [server-ux, reporting-engine, stock-logistics-warehouse]
 sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/account-financial-tools.git account-financial-tools
 
@@ -144,6 +172,8 @@ sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/stock-logis
 
 sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/project-reporting.git project-reporting
 
+sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/account-budgeting.git account-budgeting
+
 # requires [odoo-test-helper, python-barcode, barcodenumber], depends on: [product-attribute, stock-logistics-warehouse]
 sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/stock-logistics-barcode.git stock-logistics-barcode
 
@@ -153,31 +183,12 @@ sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/server-auth
 # depends on: [product-attribute, rest-framework, server-auth, server-tools, stock-logistics-workflow, stock-logistics-warehouse, web]
 sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/wms.git wms
 
-# DeBranding Server
-sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/server-brand.git server-brand
-
-# HR
-sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/hr.git hr
-
+# Vertical ERP
 # Hotel & Restaurant Management
 sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/vertical-hotel.git vertical-hotel
+# depends on: [contract]
+sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/vertical-association.git vertical-association
 
-# Helpdesk
-sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/helpdesk.git helpdesk
-
-# requires: [cerberus pyquerystring parse-accept-language jsondiff graphene graphql-server-core marshmallow marshmallow-objects>=2.0.0 apispec], depends on: [connector]
-sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/rest-framework.git rest-framework
-
-# Timesheet
-# depends on: [project, web]
-sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/timesheet.git timesheet
-
-# IoT
-# requires: [pika]
-sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/iot.git iot
-
-# Payroll
-sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/payroll.git payroll
 
 # Muk
 #sudo git clone --depth 1 --branch $OE_VERSION https://github.com/muk-it/muk_base.git muk_base
