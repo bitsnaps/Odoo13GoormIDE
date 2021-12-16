@@ -189,6 +189,8 @@ sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/vertical-ho
 # depends on: [contract]
 sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/vertical-association.git vertical-association
 
+# Cybrosys Addons (Full accounting)
+#sudo git clone --depth 1 --branch $OE_VERSION https://github.com/CybroOdoo/CybroAddons.git cybrosys
 
 # Muk
 #sudo git clone --depth 1 --branch $OE_VERSION https://github.com/muk-it/muk_base.git muk_base
