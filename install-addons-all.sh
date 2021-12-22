@@ -192,6 +192,22 @@ sudo git clone --depth 1 --branch $OE_VERSION https://github.com/OCA/vertical-as
 # Cybrosys Addons (Full accounting)
 #sudo git clone --depth 1 --branch $OE_VERSION https://github.com/CybroOdoo/CybroAddons.git cybrosys
 
+# IT Projects-Labs
+# depends: [web, it-projects-llc/misc-addons]
+#sudo git clone --depth 1 --branch $OE_VERSION https://github.com/itpp-labs/access-addons.git access-addons
+
+# requirements: [python-chess==0.23.11], depends: [server-tools, web, it-projects-llc/access-addons, it-projects-llc/mail-addons, it-projects-llc/misc-addons]
+#sudo git clone --depth 1 --branch $OE_VERSION https://github.com/itpp-labs/website-addons.git website-addons
+
+# depends: [web, it-projects-llc/access-addons, it-projects-llc/misc-addons, it-projects-llc/website-addons]
+#sudo git clone --depth 1 --branch $OE_VERSION https://github.com/itpp-labs/mail-addons.git mail-addons
+
+# requirements: [icalendar, boto3, websocket-client, pretty_bad_protocol, requests_mock, dropbox, google-api-python-client, bs4], depends: [server-tools, web, website, it-projects-llc/access-addons, it-projects-llc/mail-addons, it-projects-llc/website-addons, it-projects-llc/l10n-addons, hr]
+#sudo git clone --depth 1 --branch $OE_VERSION https://github.com/itpp-labs/misc-addons.git misc-addons
+
+# requirements: [wechatpy, requests-mock, python-alipay-sdk, websocket-client], depends: [it-projects-llc/web, it-projects-llc/misc-addons, it-projects-llc/stock-logistics-barcode]
+#sudo git clone --depth 1 --branch $OE_VERSION https://github.com/itpp-labs/pos-addons.git pos-addons
+
 # Muk
 #sudo git clone --depth 1 --branch $OE_VERSION https://github.com/muk-it/muk_base.git muk_base
 # depends on: [muk_base]
