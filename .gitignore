@@ -1,5 +1,5 @@
 .temp
 *.deb
 secret.txt
-goorm.manifest
 odoo13/
+*.manifest
